@@ -139,7 +139,7 @@ namespace BulkDeleteManager
 
         private void tsbReloadJobs_Click(object sender, EventArgs e)
         {
-            ReloadJobs();
+            ExecuteMethod(ReloadJobs);
         }
     }
 }

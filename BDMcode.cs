@@ -33,6 +33,13 @@ namespace BulkDeleteManager
                     {
                         xrmEntity.DataSource = metaload.Result?.EntityMetadata;
                         GetBulkDeleteJobs();
+                        toolStripButton1.Enabled = true;
+                        tsbReloadJobs.Enabled = true;
+                        ChangeQuery.Enabled = true;
+                        btnCountResult.Enabled = true;
+                        btCancel.Enabled = true;
+                        btDelete.Enabled = true;
+                        SaveNewButton.Enabled = true;
                     }
                     else
                     {
@@ -157,6 +164,8 @@ namespace BulkDeleteManager
                 startDateTimePicker.Value = DateTime.Now;
                 xrmCTRecurrenceStart.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 btCancel.Visible = false;
+
+
             }
             else
             {
