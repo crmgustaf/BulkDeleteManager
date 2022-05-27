@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
@@ -149,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ExampleDataXml.xml" />
+    <None Include="BulkDeleteManager.nuspec" />
     <None Include="Resources\FXB-24.png" />
   </ItemGroup>
   <Import Project="Rappen.XTB.Helper\Rappen.XRM.Helpers\Rappen.XRM.Helpers.projitems" Label="Shared" />

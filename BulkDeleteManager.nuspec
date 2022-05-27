@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <icon>https://crmkonsulterna-my.sharepoint.com/:i:/g/personal/gustaf_westerlund_crmkonsulterna_se/EZK7Nsv1UopNhMCKT5xYjU4B9j0yj3ragTKjEuLfhYH2xw?e=0q2TMn</icon>
+    <projectUrl>https://github.com/crmgustaf/BulkDeleteManager</projectUrl>
+    <description>$description$</description>
+    <releaseNotes>First release of Bulk Delete Manager!</releaseNotes>
+    <copyright>$copyright$</copyright>
+    <tags>XrmToolBox BulkDelete Bulk Delete</tags>
+    <dependencies>
+      <dependency id="XrmToolBox" version="1.2022.4.55" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="BulkDeleteManager\bin\Release\BulkDeleteManager.dll" target="lib\net452\Plugins" />
+  </files>
+</package>
