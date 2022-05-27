@@ -6,7 +6,7 @@
     <title>$title$</title>
     <authors>$author$</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <license type="expression">MIT</license>
+    <summary>Manage your bulk deletion jobs in dataverse easier. Use the power of FXB to create FetchXml queries directly in BulkDeletes.</summary>
     <icon>https://crmkonsulterna-my.sharepoint.com/:i:/g/personal/gustaf_westerlund_crmkonsulterna_se/EZK7Nsv1UopNhMCKT5xYjU4B9j0yj3ragTKjEuLfhYH2xw?e=0q2TMn</icon>
     <projectUrl>https://github.com/crmgustaf/BulkDeleteManager</projectUrl>
     <description>$description$</description>
