@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>CrmGustaf.XTB.BulkDeleteManager</id>
-    <version>1.0.0.3</version>
+    <version>1.0.0.4</version>
     <title>Bulk Delete Manager</title>
     <authors>Gustaf Westerlund, Ebba Linnea Nilsson and Jonas Rapp</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -19,6 +19,7 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="Resources\bdmlogov3.png" target="images\"/> 
+    <file src="Resources\bdmlogov3.png" target="images\"/>
+    <file src="bin\Release\BulkDeleteManager.dll" target="lib\net452\Plugins" />
   </files>
 </package>
