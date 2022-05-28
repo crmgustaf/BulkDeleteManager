@@ -12,7 +12,7 @@ namespace BulkDeleteManager
 
         public string RepositoryName => "BulkDeleteManager";
 
-        public string UserName => "crmgustav";
+        public string UserName => "crmgustaf";
 
         public event EventHandler<MessageBusEventArgs> OnOutgoingMessage;
 
