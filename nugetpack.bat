@@ -1,2 +1,2 @@
 @echo off
-nuget pack
+nuget pack BulkDeletemanager.nuspec
