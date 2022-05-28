@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>CrmGustaf.XTB.BulkDeleteManager</id>
-    <version>1.0.1.0</version>
+    <version>1.0.1.1</version>
     <title>Bulk Delete Manager</title>
     <authors>Gustaf Westerlund, Ebba Linnea Nilsson and Jonas Rapp</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
