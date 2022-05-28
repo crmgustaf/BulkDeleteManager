@@ -8,6 +8,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>Manage your bulk deletion jobs in dataverse easier. Use the power of FXB to create FetchXml queries directly in BulkDeletes.</summary>
     <icon>images\bdmlogov3.png</icon>
+    <iconUrl>https://media.powerplatform.se/2022/05/bdmlogov3.png</iconUrl>
     <projectUrl>https://github.com/crmgustaf/BulkDeleteManager</projectUrl>
     <description>Tool for easier management of Bulk Deletion Jobs in Dataverse</description>
     <releaseNotes>First release of Bulk Delete Manager!</releaseNotes>
