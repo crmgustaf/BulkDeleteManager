@@ -12,8 +12,8 @@ namespace BulkDeleteManager
     // Do not forget to update version number and author (company attribute) in AssemblyInfo.cs class
     // To generate Base64 string for Images below, you can use https://www.base64-image.de/
     [Export(typeof(IXrmToolBoxPlugin)),
-        ExportMetadata("Name", "BulkDeleteManager  "),
-        ExportMetadata("Description", "Manage you bulk deletes in your Dataverse instance. List, create new and  (soon) copy"),
+        ExportMetadata("Name", "Bulk Delete Manager  "),
+        ExportMetadata("Description", "Manage you bulk deletes in your Dataverse instance. List, create new and (soon) copy."),
         // Please specify the base64 content of a 32x32 pixels image
         ExportMetadata("SmallImageBase64", "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAIuUExURf////7+/uTk5N3d3d7e3uDg4Ofn59vb29zc3Pj4+Onp6fPz87XB0uDi5MDH0Yifv/z8/L/FzpSoxC975S9yzy9/7i575mCLyG6VyrXC0667zC586C9+7TCB8mSLwuXm6L3Ezk2AyDJ316q5zf39/S1tyJ6twfX19fT09PLy8itx0zJ528TM1+Li4uHh4fv7+2CDtFaFx5+yzFKDyYmgv/Dw8Pb29tPT0bOzo1R8qC123OTk5dvc3S565DCA8K+7zPf399ra2tfXvMvLP9bWBfj4AOHhAKe2LS5758bM1L3Fzy9+7FqHxt/f38LCOf//AFd/fDV52F2KyDN52j56zcbM1eXl5ZmZeL+/hc3NT83NJs7OEKquEy9uwkp/yM7OHdfXC83NQ83Nbc7OhM7Oi2+KnjZ62l2CtO/v78HLHlOCkC9965mtyL29Sfv7AGGIeER9zjpttJ+fZa6ukM3NdM3NS87ONc7OLc7OMs7ORaapdJKbpmh3W0x/xliGxU1/xurr7Pr6+uzsAM3NHs3NSM7OXs7OZs7OYc3NTs3NKeLiAubmAMTFx/n5+f7+AJubQ+fnAObm5rm5X+vrAeTkALm5Ne3t7aOjT62tkMLCj83NcM7OWs7OUs7OV83NasjIiqiokaGhUMPDw/39ANfXBM3NI87OOs7OQc7OPLu7KbGxCNbWANXVAIqKQ8rKidXVDN7eBMLCX87Ovs3Nlc7Of87Od87OfM7Oj83NtOzs7NnjmgYAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAGMSURBVDhPY6AVYITSWAETMzMLKzMblIcOGNk5OKFMVMDFDaZ4ePn4sRvPDMQCgkLCIqJi4hKSEDEUwALEUtIysmAgJw8RRAZABQqKEGkgUFKGCiMAC4OKKlQWBNTUNaASMMDCoKkFlQQBbR1dJqgMFOjpG4AdYGhkDKJETRhM2aFSYGBmbmEJkrCyZrCxBdJ29gwMDo5QSQYGJ2cXVzd3kAIPTwYvbxDDByis7guRZmDw8weCAJC4bGBQMIgKCQWJh8FcGh4RGRUdEwtWAQFxEAlQ8IFAfEJiUnJKKlQSCNLSIRIZEIohHmSFf2ZWNlReNgcqAQO5eWAV/vkQ6YJCTagEDBQVl5SWlVdUVlXX2NbW1Tc0QsXhIL6puaW1rb2js6u7h0GToxcqjAAQN/j79/VPmMgwEUtamjQZqmLKVA32aVBBZDB9xsxZs+fMnTd/wcJFGPaDQPziJUuXLV+xctXqNROhQqgA7oa1QDdgA+vWL4ao2LBRACqEBtQ3bd6yddv2HTuh/EEFGBgANAFjArbKkKgAAAAASUVORK5CYII="),
         // Please specify the base64 content of a 80x80 pixels image
@@ -29,11 +29,11 @@ namespace BulkDeleteManager
         }
 
         /// <summary>
-        /// Constructor 
+        /// Constructor
         /// </summary>
         public BulkDeleteManager()
         {
-            // If you have external assemblies that you need to load, uncomment the following to 
+            // If you have external assemblies that you need to load, uncomment the following to
             // hook into the event that will fire when an Assembly fails to resolve
             // AppDomain.CurrentDomain.AssemblyResolve += new ResolveEventHandler(AssemblyResolveEventHandler);
         }
@@ -41,7 +41,7 @@ namespace BulkDeleteManager
         /// <summary>
         /// Event fired by CLR when an assembly reference fails to load
         /// Assumes that related assemblies will be loaded from a subfolder named the same as the Plugin
-        /// For example, a folder named Sample.XrmToolBox.MyPlugin 
+        /// For example, a folder named Sample.XrmToolBox.MyPlugin
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
