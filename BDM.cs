@@ -1,20 +1,18 @@
 ﻿using McTools.Xrm.Connection;
-using Microsoft.Crm.Sdk.Messages;
 using Microsoft.Xrm.Sdk;
-using Microsoft.Xrm.Sdk.Metadata;
-using Microsoft.Xrm.Sdk.Query;
 using System;
-using System.Text.RegularExpressions;
-using System.Windows.Forms;
-using System.Xml;
 using XrmToolBox.Extensibility;
 using XrmToolBox.Extensibility.Interfaces;
 
 namespace BulkDeleteManager
 {
-    public partial class BDM : PluginControlBase, IMessageBusHost
+    public partial class BDM : PluginControlBase, IMessageBusHost, IGitHubPlugin
     {
         private Settings mySettings;
+
+        public string RepositoryName => "BulkDeleteManager";
+
+        public string UserName => "crmgustav";
 
         public event EventHandler<MessageBusEventArgs> OnOutgoingMessage;
 
