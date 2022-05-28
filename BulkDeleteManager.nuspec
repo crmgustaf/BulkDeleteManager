@@ -19,6 +19,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="Resources\bdmlogov3.png" target="images\"/>
+    <file src="Resources\bdmlogov3.png" target="images\"/> 
   </files>
 </package>
