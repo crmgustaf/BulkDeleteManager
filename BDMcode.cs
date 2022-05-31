@@ -223,6 +223,13 @@ namespace BulkDeleteManager
                 return;
             }
 
+            DialogResult dr = MessageBox.Show("Are you sure you want to create this deletion job?\nPlease note that there is a bug in the Bulk delete functionality in Dataverse, which makes it handle \"outer join\" incorrectly and can in those cases remove more records than intended ", "Please confirm", MessageBoxButtons.OKCancel);
+            if (((int)dr) != 1)
+            {
+                return;
+            }
+
+
             var bulkDeleteRequest = new BulkDeleteRequest();
             bulkDeleteRequest.JobName = xrmColumnName.Text;
 
