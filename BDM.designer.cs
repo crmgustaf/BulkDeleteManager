@@ -29,8 +29,8 @@ namespace BulkDeleteManager
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStripMenu = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tsbReloadJobs = new System.Windows.Forms.ToolStripButton();
@@ -60,7 +60,6 @@ namespace BulkDeleteManager
             this.labelbulkdelete = new System.Windows.Forms.Label();
             this.ChangeQuery = new System.Windows.Forms.Button();
             this.xrmBulkDeleteNames = new Rappen.XTB.Helpers.Controls.XRMDataGridView();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xrmDataGridViewShowJobs = new Rappen.XTB.Helpers.Controls.XRMDataGridView();
             this.failurecount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.successcount = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,6 +71,7 @@ namespace BulkDeleteManager
             this.xrmCTRecurrenceStart = new Rappen.XTB.Helpers.Controls.XRMColumnText();
             this.xrmColumnNextRun = new Rappen.XTB.Helpers.Controls.XRMColumnText();
             this.xrmColumnName = new Rappen.XTB.Helpers.Controls.XRMColumnText();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStripMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.SuspendLayout();
@@ -219,7 +219,7 @@ namespace BulkDeleteManager
             // 
             this.btDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btDelete.Enabled = false;
-            this.btDelete.Location = new System.Drawing.Point(572, 499);
+            this.btDelete.Location = new System.Drawing.Point(571, 499);
             this.btDelete.Name = "btDelete";
             this.btDelete.Size = new System.Drawing.Size(88, 27);
             this.btDelete.TabIndex = 56;
@@ -232,7 +232,7 @@ namespace BulkDeleteManager
             // 
             this.btCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btCancel.Enabled = false;
-            this.btCancel.Location = new System.Drawing.Point(572, 532);
+            this.btCancel.Location = new System.Drawing.Point(571, 532);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(88, 27);
             this.btCancel.TabIndex = 55;
@@ -255,7 +255,7 @@ namespace BulkDeleteManager
             // 
             this.btnCountResult.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCountResult.Enabled = false;
-            this.btnCountResult.Location = new System.Drawing.Point(494, 396);
+            this.btnCountResult.Location = new System.Drawing.Point(493, 396);
             this.btnCountResult.Name = "btnCountResult";
             this.btnCountResult.Size = new System.Drawing.Size(167, 33);
             this.btnCountResult.TabIndex = 52;
@@ -279,14 +279,14 @@ namespace BulkDeleteManager
             this.startTimeDateLabel.Location = new System.Drawing.Point(286, 517);
             this.startTimeDateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.startTimeDateLabel.Name = "startTimeDateLabel";
-            this.startTimeDateLabel.Size = new System.Drawing.Size(84, 13);
+            this.startTimeDateLabel.Size = new System.Drawing.Size(119, 13);
             this.startTimeDateLabel.TabIndex = 49;
-            this.startTimeDateLabel.Text = "Start Time Date:";
+            this.startTimeDateLabel.Text = "Start Time Date (Local):";
             // 
             // startDateTimePicker
             // 
             this.startDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.startDateTimePicker.CustomFormat = "yyyy-MM-dd hh:mm";
+            this.startDateTimePicker.CustomFormat = "yyyy-MM-dd HH:mm";
             this.startDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.startDateTimePicker.Location = new System.Drawing.Point(289, 532);
             this.startDateTimePicker.Margin = new System.Windows.Forms.Padding(2);
@@ -312,7 +312,7 @@ namespace BulkDeleteManager
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFetchXML.Location = new System.Drawing.Point(13, 108);
             this.txtFetchXML.Name = "txtFetchXML";
-            this.txtFetchXML.Size = new System.Drawing.Size(647, 281);
+            this.txtFetchXML.Size = new System.Drawing.Size(646, 281);
             this.txtFetchXML.TabIndex = 45;
             // 
             // label2
@@ -369,7 +369,7 @@ namespace BulkDeleteManager
             // 
             this.SaveNewButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.SaveNewButton.Enabled = false;
-            this.SaveNewButton.Location = new System.Drawing.Point(572, 571);
+            this.SaveNewButton.Location = new System.Drawing.Point(571, 571);
             this.SaveNewButton.Margin = new System.Windows.Forms.Padding(2);
             this.SaveNewButton.Name = "SaveNewButton";
             this.SaveNewButton.Size = new System.Drawing.Size(89, 26);
@@ -453,18 +453,18 @@ namespace BulkDeleteManager
             this.xrmBulkDeleteNames.AllowUserToDeleteRows = false;
             this.xrmBulkDeleteNames.AllowUserToOrderColumns = true;
             this.xrmBulkDeleteNames.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.xrmBulkDeleteNames.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.xrmBulkDeleteNames.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.xrmBulkDeleteNames.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.xrmBulkDeleteNames.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.xrmBulkDeleteNames.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.xrmBulkDeleteNames.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.xrmBulkDeleteNames.ColumnHeadersVisible = false;
             this.xrmBulkDeleteNames.ColumnOrder = "";
@@ -483,14 +483,6 @@ namespace BulkDeleteManager
             this.xrmBulkDeleteNames.Size = new System.Drawing.Size(282, 414);
             this.xrmBulkDeleteNames.TabIndex = 0;
             this.xrmBulkDeleteNames.RecordEnter += new Rappen.XTB.Helpers.Controls.XRMRecordEventHandler(this.xrmBulkDeleteNames_RecordEnter);
-            // 
-            // name
-            // 
-            this.name.HeaderText = "Bulk Delete Name";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Width = 6;
             // 
             // xrmDataGridViewShowJobs
             // 
@@ -622,8 +614,16 @@ namespace BulkDeleteManager
             this.xrmColumnName.Margin = new System.Windows.Forms.Padding(2);
             this.xrmColumnName.Name = "xrmColumnName";
             this.xrmColumnName.RecordHost = this.xrmRecordHost1;
-            this.xrmColumnName.Size = new System.Drawing.Size(646, 20);
+            this.xrmColumnName.Size = new System.Drawing.Size(645, 20);
             this.xrmColumnName.TabIndex = 10;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Bulk Delete Name";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Width = 6;
             // 
             // BDM
             // 
@@ -665,7 +665,6 @@ namespace BulkDeleteManager
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private Rappen.XTB.Helpers.Controls.XRMDataGridView xrmBulkDeleteNames;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private Rappen.XTB.Helpers.Controls.XRMColumnText xrmColumnName;
         private Rappen.XTB.Helpers.Controls.XRMRecordHost xrmRecordHost1;
         private System.Windows.Forms.Button ChangeQuery;
@@ -701,5 +700,6 @@ namespace BulkDeleteManager
         private System.Windows.Forms.DataGridViewTextBoxColumn successcount;
         private System.Windows.Forms.Button btDelete;
         private System.Windows.Forms.ToolStripButton tsbReloadJobs;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
     }
 }

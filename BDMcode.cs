@@ -7,6 +7,8 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Xml;
 using XrmToolBox.Extensibility;
+using Rappen.XRM.Helpers;
+using Rappen.XRM.Helpers.Extensions;
 
 namespace BulkDeleteManager
 {
@@ -23,15 +25,24 @@ namespace BulkDeleteManager
 
         private void LoadMetadata()
         {
-            
-            ConnectionDetail.MetadataCacheLoader.ContinueWith(metaload =>
+            WorkAsync(new WorkAsyncInfo
             {
-                Invoke((MethodInvoker)delegate
+                Message = "Loading Tables...",
+                Work = (worker, args) =>
+                {
+                    args.Result = Service.LoadEntities().EntityMetadata;
+
+                },
+                PostWorkCallBack = (args) =>
                 {
                     Enabled = true;
-                    if (!metaload.IsFaulted)
+                    if (args.Error != null)
                     {
-                        xrmEntity.DataSource = metaload.Result?.EntityMetadata;
+                        ShowErrorDialog(args.Error);
+                    }
+                    else if (args.Result is EntityMetadataCollection entities)
+                    {
+                        xrmEntity.DataSource = entities;
                         GetBulkDeleteJobs();
                         toolStripButton1.Enabled = true;
                         tsbReloadJobs.Enabled = true;
@@ -41,12 +52,33 @@ namespace BulkDeleteManager
                         btDelete.Enabled = true;
                         SaveNewButton.Enabled = true;
                     }
-                    else
-                    {
-                        MessageBox.Show("Unable to load metadata. Remove the metadata cache in the XRMToolbox folder and try again");
-                    }
-                });
+                }
             });
+
+
+            //ConnectionDetail.MetadataCacheLoader.ContinueWith(metaload =>
+            //{
+            //    Invoke((MethodInvoker)delegate
+            //    {
+            //        Enabled = true;
+            //        if (!metaload.IsFaulted)
+            //        {
+            //            xrmEntity.DataSource = metaload.Result?.EntityMetadata;
+            //            GetBulkDeleteJobs();
+            //            toolStripButton1.Enabled = true;
+            //            tsbReloadJobs.Enabled = true;
+            //            ChangeQuery.Enabled = true;
+            //            btnCountResult.Enabled = true;
+            //            btCancel.Enabled = true;
+            //            btDelete.Enabled = true;
+            //            SaveNewButton.Enabled = true;
+            //        }
+            //        else
+            //        {
+            //            MessageBox.Show("Unable to load metadata. Remove the metadata cache in the XRMToolbox folder and try again\n (%AppData%\\Roaming\\MscrmTools\\XrmToolBox\\Metadata)");
+            //        }
+            //    });
+            //});
         }
 
         private void GetBulkDeleteJobs()
@@ -54,6 +86,36 @@ namespace BulkDeleteManager
             var query_operationtype = 13;
             var query = new QueryExpression("asyncoperation");
             query.ColumnSet.AddColumns("name","statecode", "operationtype", "messagename", "primaryentitytype", "message", "ownerid", "friendlymessage", "recurrencestarttime", "recurrencepattern", "postponeuntil", "statuscode", "data");
+            query.AddOrder("name", OrderType.Ascending);
+            query.Criteria.AddCondition("recurrencepattern", ConditionOperator.NotNull);
+            query.Criteria.AddCondition("operationtype", ConditionOperator.Equal, query_operationtype);
+
+            WorkAsync(new WorkAsyncInfo
+            {
+                Message = "Getting bulk deletion jobs",
+                Work = (worker, args) =>
+                {
+                    args.Result = Service.RetrieveMultiple(query);
+                },
+                PostWorkCallBack = (args) =>
+                {
+                    if (args.Error != null)
+                    {
+                        ShowErrorDialog(args.Error, "Load Bulk Data Deleting Jobs");
+                    }
+                    if (args.Result is EntityCollection result)
+                    {
+                        xrmBulkDeleteNames.DataSource = result;
+                    }
+                }
+            });
+        }
+        private void GetBulkDeleteJobsNew()
+        {
+            //Not implemented yet
+            var query_operationtype = 13;
+            var query = new QueryExpression("bulkdeleteoperation");
+            query.ColumnSet.AddColumns("name", "statecode","recurrencestarttime", "recurrencepattern", "postponeuntil", "statuscode", "orderedquerysetxml");
             query.AddOrder("name", OrderType.Ascending);
             query.Criteria.AddCondition("recurrencepattern", ConditionOperator.NotNull);
             query.Criteria.AddCondition("operationtype", ConditionOperator.Equal, query_operationtype);
@@ -160,7 +222,7 @@ namespace BulkDeleteManager
                 xrmEntity.SelectedIndex = -1;
                 txtFetchXML.Text = null;
                 cmbRecurrancePattern.SelectedItem = cmbRecurrancePattern.Items[2];
-                numInterval.Value = 0;
+                numInterval.Value = 7;
                 startDateTimePicker.Value = DateTime.Now;
                 xrmCTRecurrenceStart.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 btCancel.Visible = false;
@@ -180,7 +242,7 @@ namespace BulkDeleteManager
                 numInterval.Value = recurr.Interval;
                 if (xrmRecordHost1.Record.TryGetAttributeValue("recurrencestarttime", out DateTime starttime))
                 {
-                    startDateTimePicker.Value = starttime;
+                    startDateTimePicker.Value = starttime.ToLocalTime();
                 }
 
                 int statuscode = ((Microsoft.Xrm.Sdk.OptionSetValue)xrmRecordHost1.Record["statuscode"]).Value;
@@ -223,7 +285,7 @@ namespace BulkDeleteManager
                 return;
             }
 
-            DialogResult dr = MessageBox.Show("Are you sure you want to create this deletion job?\nPlease note that there is a bug in the Bulk delete functionality in Dataverse, which makes it handle \"outer join\" incorrectly and can in those cases remove more records than intended ", "Please confirm", MessageBoxButtons.OKCancel);
+            DialogResult dr = MessageBox.Show("Are you sure you want to create this deletion job?\n We are attempting our best to create this correctly but it is your responsibility if any data is lost.", "Please confirm", MessageBoxButtons.OKCancel);
             if (((int)dr) != 1)
             {
                 return;
@@ -233,6 +295,7 @@ namespace BulkDeleteManager
             var bulkDeleteRequest = new BulkDeleteRequest();
             bulkDeleteRequest.JobName = xrmColumnName.Text;
 
+            
             bulkDeleteRequest.StartDateTime = startDateTimePicker.Value;
             bulkDeleteRequest.RecurrencePattern = Recurrency.ToString("DAILY", (int)numInterval.Value); //has to be DAILY for bulk delete.
 

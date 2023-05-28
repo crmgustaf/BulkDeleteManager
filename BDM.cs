@@ -127,12 +127,12 @@ namespace BulkDeleteManager
 
         private void btCancel_Click(object sender, EventArgs e)
         {
-            CancelJob();
+            ExecuteMethod(CancelJob);
         }
 
         private void btDelete_Click(object sender, EventArgs e)
         {
-            DeleteJob();
+            ExecuteMethod(DeleteJob);
         }
 
         private void tsbReloadJobs_Click(object sender, EventArgs e)
