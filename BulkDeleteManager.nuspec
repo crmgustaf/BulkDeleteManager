@@ -11,7 +11,7 @@
     <iconUrl>https://media.powerplatform.se/2022/05/bdmlogov3.png</iconUrl>
     <projectUrl>https://github.com/crmgustaf/BulkDeleteManager</projectUrl>
     <description>Tool for easier management of Bulk Deletion Jobs in Dataverse</description>
-    <releaseNotes>First release of Bulk Delete Manager!</releaseNotes>
+    <releaseNotes>Release 1.0.2 with some essential fixes of Bulk Delete Manager!</releaseNotes>
     <copyright>$copyright$</copyright>
     <tags>XrmToolBox BulkDelete Bulk Delete</tags>
     <dependencies>
